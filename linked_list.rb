@@ -3,5 +3,8 @@
 #Purpose: To practice with the creation and maintenance of linked lists
 
 class LinkedList
+  class Node
+
+  end
 
 end
