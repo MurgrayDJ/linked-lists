@@ -4,7 +4,10 @@
 
 class LinkedList
   class Node
-
+    @next_node = nil
+    def value 
+      nil
+    end
   end
 
 end
