@@ -4,7 +4,7 @@
 
 class LinkedList
   class Node
-    attr_reader :value
+    attr_accessor :value
     attr_accessor :next_node
 
     def initialize(value=nil, next_node=nil)
@@ -13,15 +13,23 @@ class LinkedList
     end
   end
 
-  def initialize(head=nil, tail=nil)
-    @head = head
-    @tail = tail
+  attr_accessor :head
+  attr_accessor :tail
+
+  def initialize
+    @head = nil
+    @tail = nil
   end
 
   def append(value)
     new_node = Node.new(value)
-    @tail.next_node = new_node
-    @tail = new_node
+    if @head.nil?
+      @head = new_node
+      @tail = new_node
+    else
+      @tail.next_node = new_node
+      @tail = new_node
+    end
   end
 
   def head
@@ -32,10 +40,14 @@ class LinkedList
     @tail
   end
 
-  # second = Node.new(4, nil)
-  # first = Node.new(3, second)
-  # list = LinkedList.new(first, second)
-  # puts list.head.next_node.value
-  # list.append(5)
-  # puts list.tail.value
+  list = LinkedList.new()
+
+  list.append(3)
+  puts list.head.value
+
+  list.append(4)
+  puts list.head.next_node.value
+
+  list.append(5)
+  puts list.tail.value
 end
