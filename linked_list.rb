@@ -18,6 +18,12 @@ class LinkedList
     @tail = tail
   end
 
+  def append(value)
+    new_node = Node.new(value)
+    @tail.next_node = new_node
+    @tail = new_node
+  end
+
   def head
     @head
   end
@@ -28,6 +34,8 @@ class LinkedList
 
   # second = Node.new(4, nil)
   # first = Node.new(3, second)
-  # list = LinkedList.new(first)
+  # list = LinkedList.new(first, second)
   # puts list.head.next_node.value
+  # list.append(5)
+  # puts list.tail.value
 end
