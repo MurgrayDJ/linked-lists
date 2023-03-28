@@ -22,6 +22,10 @@ class LinkedList
     @head
   end
 
+  def tail
+    @tail
+  end
+
   # second = Node.new(4, nil)
   # first = Node.new(3, second)
   # list = LinkedList.new(first)
