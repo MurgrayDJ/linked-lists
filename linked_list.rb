@@ -12,4 +12,9 @@ class LinkedList
       @next_node = next_node
     end
   end
+
+  def initialize(head=nil, tail=nil,)
+    @head = head
+    @tail = tail
+  end
 end
