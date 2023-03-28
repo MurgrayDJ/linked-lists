@@ -13,8 +13,17 @@ class LinkedList
     end
   end
 
-  def initialize(head=nil, tail=nil,)
+  def initialize(head=nil, tail=nil)
     @head = head
     @tail = tail
   end
+
+  def head
+    @head
+  end
+
+  # second = Node.new(4, nil)
+  # first = Node.new(3, second)
+  # list = LinkedList.new(first)
+  # puts list.head.next_node.value
 end
