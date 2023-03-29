@@ -110,6 +110,22 @@ class LinkedList
     node_exists
   end
 
+  def find(value)
+    current_index = 0
+    current_node = @head
+
+    until current_node.nil?
+      if current_node.value == value
+        return current_index
+        break
+      else
+        current_index += 1
+        current_node = current_node.next_node
+      end
+    end
+    nil
+  end
+
   def to_s
     list_as_string = ""
     if @head.nil?
@@ -150,6 +166,7 @@ class LinkedList
   # puts "Current head: #{list.head.value}"
   # puts "Current size: #{list.size}"
   puts list.to_s
+  puts "Index of 3: #{list.find(3)}"
 
   
   puts list.to_s
