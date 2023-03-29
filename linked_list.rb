@@ -13,9 +13,6 @@ class LinkedList
     end
   end
 
-  attr_accessor :head
-  attr_accessor :tail
-
   def initialize
     @head = nil
     @tail = nil
