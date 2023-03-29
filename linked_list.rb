@@ -32,6 +32,17 @@ class LinkedList
     end
   end
 
+  def prepend(value)
+    new_node = Node.new(value)
+    if @head.nil?
+      @head = new_node
+      @tail = new_node
+    else
+      new_node.next_node = @head
+      @head = new_node
+    end
+  end
+
   def head
     @head
   end
@@ -50,4 +61,7 @@ class LinkedList
 
   list.append(5)
   puts list.tail.value
+
+  list.prepend(1)
+  puts list.head.value
 end
