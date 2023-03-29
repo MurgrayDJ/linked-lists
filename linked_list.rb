@@ -43,6 +43,16 @@ class LinkedList
     end
   end
 
+  def size
+    size = 0
+    current_node = @head
+    until current_node.nil?
+      current_node = current_node.next_node
+      size += 1
+    end
+    size
+  end
+
   def head
     @head
   end
@@ -54,14 +64,17 @@ class LinkedList
   list = LinkedList.new()
 
   list.append(3)
-  puts list.head.value
+  puts "Current head: #{list.head.value}"
+  puts "Current size: #{list.size}"
 
   list.append(4)
-  puts list.head.next_node.value
+  puts "Node after head: #{list.head.next_node.value}"
 
   list.append(5)
-  puts list.tail.value
+  puts "Current tail: #{list.tail.value}"  
+  puts "Current size: #{list.size}"
 
   list.prepend(1)
-  puts list.head.value
+  puts "Current head: #{list.head.value}"
+  puts "Current size: #{list.size}"
 end
