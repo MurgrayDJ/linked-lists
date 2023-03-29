@@ -43,6 +43,23 @@ class LinkedList
     end
   end
 
+  def at(index)
+    current_index = 0
+    value = nil
+    current_node = @head
+
+    until current_node.nil?
+      if current_index == index
+        value = current_node.value
+        break
+      else
+        current_index += 1
+        current_node = current_node.next_node
+      end
+    end
+    value
+  end
+
   def size
     size = 0
     current_node = @head
@@ -88,6 +105,7 @@ class LinkedList
   list.append(5)
   puts "Current tail: #{list.tail.value}"  
   puts "Current size: #{list.size}"
+  puts "Value at index 2 is: #{list.at(2)}"
   puts list.to_s
 
   list.prepend(1)
