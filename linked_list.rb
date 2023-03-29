@@ -76,6 +76,26 @@ class LinkedList
     value
   end
 
+  def insert_at(value, index)
+    new_node = Node.new(value)
+    current_node = @head
+    current_index = 0
+    if index < 0 || index > self.size
+      puts "Error: Provided index is out of bounds"
+    elsif @head.nil? && index == 0
+      this.append(value)
+    elsif @head.nil? && index != 0
+      puts "Error: Provided index is out of bounds"
+    else
+      until current_index + 1 == index
+          current_index += 1
+          current_node = current_node.next_node
+      end
+      new_node.next_node = current_node.next_node
+      current_node.next_node = new_node
+    end
+  end
+
   def pop
     current_node = @head
     popped_node = nil
@@ -168,6 +188,6 @@ class LinkedList
   puts list.to_s
   puts "Index of 3: #{list.find(3)}"
 
-  
+  list.insert_at(2, 1)
   puts list.to_s
 end
