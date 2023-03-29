@@ -95,6 +95,21 @@ class LinkedList
     popped_node
   end
 
+  def contains?(value)
+    current_node = @head
+    node_exists = false
+
+    until current_node.nil?
+      if current_node.value == value
+        node_exists = true
+        break
+      else
+        current_node = current_node.next_node
+      end
+    end
+    node_exists
+  end
+
   def to_s
     list_as_string = ""
     if @head.nil?
@@ -115,6 +130,7 @@ class LinkedList
   # puts "Current head: #{list.head.value}"
   # puts "Current size: #{list.size}"
   puts list.to_s
+  puts "4 is in the list: #{list.contains?(4)}"
 
   list.append(4)
   # puts "Node after head: #{list.head.next_node.value}"
@@ -125,7 +141,10 @@ class LinkedList
   # puts "Current size: #{list.size}"
   # puts "Value at index 2 is: #{list.at(2)}"
   puts list.to_s
+  puts "4 is in the list: #{list.contains?(4)}"
   puts "Node popped off: ( #{list.pop.value} )"
+  puts list.to_s
+  
 
   list.prepend(1)
   # puts "Current head: #{list.head.value}"
