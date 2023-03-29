@@ -61,11 +61,26 @@ class LinkedList
     @tail
   end
 
+  def to_s
+    list_as_string = ""
+    if head.nil?
+      list_as_string = "This list is empty."
+    else
+      current_node = @head
+      until current_node.nil?
+        list_as_string << "( #{current_node.value} ) -> "
+        current_node = current_node.next_node
+      end
+      list_as_string << "nil"
+    end
+  end
+
   list = LinkedList.new()
 
   list.append(3)
   puts "Current head: #{list.head.value}"
   puts "Current size: #{list.size}"
+  puts list.to_s
 
   list.append(4)
   puts "Node after head: #{list.head.next_node.value}"
@@ -73,8 +88,10 @@ class LinkedList
   list.append(5)
   puts "Current tail: #{list.tail.value}"  
   puts "Current size: #{list.size}"
+  puts list.to_s
 
   list.prepend(1)
   puts "Current head: #{list.head.value}"
   puts "Current size: #{list.size}"
+  puts list.to_s
 end
