@@ -83,7 +83,7 @@ class LinkedList
     if index < 0 || index > self.size
       puts "Error: Provided index is out of bounds"
     elsif @head.nil? && index == 0
-      this.append(value)
+      self.append(value)
     elsif @head.nil? && index != 0
       puts "Error: Provided index is out of bounds"
     else
@@ -93,6 +93,26 @@ class LinkedList
       end
       new_node.next_node = current_node.next_node
       current_node.next_node = new_node
+    end
+  end
+
+  def remove_at(index)
+    current_node = @head
+    current_index = 0
+    if index < 0 || index > self.size
+      puts "Error: Provided index is out of bounds"
+    elsif @head.nil? && index == 0
+      self.pop
+    elsif @head.nil? && index != 0
+      puts "Error: Provided index is out of bounds"
+    else
+      until current_index + 1 == index
+          current_index += 1
+          current_node = current_node.next_node
+      end
+      removed_node = current_node.next_node
+      current_node.next_node = current_node.next_node.next_node
+      removed_node.next_node = nil
     end
   end
 
@@ -189,5 +209,8 @@ class LinkedList
   puts "Index of 3: #{list.find(3)}"
 
   list.insert_at(2, 1)
+  puts list.to_s
+
+  list.remove_at(2)
   puts list.to_s
 end
